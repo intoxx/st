@@ -1,23 +1,24 @@
-import node from '@sveltejs/adapter-node';
-import preprocess from 'svelte-preprocess';
-import { resolve } from 'path';
+import adapter from "@sveltejs/adapter-node";
+import preprocess from "svelte-preprocess";
+import { resolve } from "path";
 
-/** @type {import('@sveltejs/kit').Config} */
+/** @type {import("@sveltejs/kit").Config} */
 const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
+		target: "#svelte",
 
-		adapter: node(),
+		adapter: adapter(),
 
 		files: {
-			assets: 'static'
+			assets: "static"
 		},
 
 		vite: {
 			resolve: {
 				alias: {
-					$routes: resolve('./src/routes')
+					$routes: resolve("./src/routes"),
+					$api: resolve("./src/api"),
 				}
 			}
 		}
