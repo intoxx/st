@@ -1,4 +1,5 @@
-<div class="bg-red-300">
-	<h1>Welcome to SvelteKit</h1>
-	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="flex h-screen">
+	<div class="m-auto">
+		<h1 class="text-bold text-center text-6xl">Great success !</h1>
+	</div>
 </div>
