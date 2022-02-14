@@ -26,13 +26,17 @@ const minification_options = {
  * Runs on every request.
  * To pass data to endpoints, populate request.locals object.
  */
-export async function handle({ request, resolve }) {
+export async function handle({ event, resolve }) {
 	try {
-		const response = await resolve(request);
+		const response = await resolve(event);
 
 		// Minify HTML output in production
-		if (!dev && response.headers["content-type"] === "text/html")
-			response.body = await minify(response.body, minification_options);
+		if (!dev && response.headers.get("content-type")?.startsWith("text/html")) {
+			return new Response(
+				await minify(await response.text(), minification_options),
+				response
+			);
+		}
 
 		return response;
 	} catch (e) {
@@ -44,6 +48,6 @@ export async function handle({ request, resolve }) {
 /*
  * Expose safe data to the client.
  */
-export function getSession(request) {
+export function getSession(event) {
 	return {};
 }
