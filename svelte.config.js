@@ -22,6 +22,18 @@ const config = {
 					$store: resolve("./src/store"),
 					$css: resolve("./src/app.css")
 				}
+			},
+
+			server: {
+				hmr: {
+					host: "localhost",
+					// Internal port (inside the container)
+					port: 3000,
+					// External port (outside the container)
+					clientPort: 3001,
+					// ws : http, wss : https
+					protocol: "ws"
+				}
 			}
 		}
 	},
