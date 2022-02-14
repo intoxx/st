@@ -1,0 +1,25 @@
+version: "3.8"
+
+# local development compose file.
+# warning : without -f this file will be read automatically.
+
+services:
+  app:
+    build:
+      target: DEVELOPMENT
+    environment:
+      NODE_ENV: "DEVELOPMENT"
+    volumes:
+      - ./app/src:/app/src
+    ports:
+      - "3001:3000"
+
+  nginx:
+    ports:
+      - "80:80"
+
+# If doing multiapp through a proxy, don't expose the port but use networks
+#networks:
+#  st_dev:
+#    driver: overlay
+#    attachable: true

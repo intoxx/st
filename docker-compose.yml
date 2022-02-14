@@ -1,0 +1,24 @@
+version: "3.8"
+
+# base compose file.
+# warning : without -f this file will be read automatically.
+
+services:
+  app:
+    build: 
+      context: "./app"
+    image: ${CI_REGISTRY_IMAGE}/app:${CI_IMAGE_TAG}
+    restart: unless-stopped
+    environment:
+      HTTPS: ${HTTPS}
+
+  nginx:
+    build: "./nginx"
+    image: ${CI_REGISTRY_IMAGE}/nginx:${CI_IMAGE_TAG}
+    restart: unless-stopped
+    depends_on:
+      - "app"
+    ports:
+      - "80:80"
+
+# If doing multiapp through a proxy, don't expose the port but use networks present in every config
