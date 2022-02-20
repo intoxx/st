@@ -11,6 +11,15 @@ const config = {
 			assets: "static"
 		},
 
+		routes: (filepath) => {
+			// Ignore route lib folder
+			if (filepath.endsWith("/lib") || filepath.includes("/lib/"))
+				return false;
+
+			// Default regex
+			return !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known))/.test(filepath);
+		},
+
 		vite: {
 			resolve: {
 				alias: {
