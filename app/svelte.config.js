@@ -23,9 +23,9 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$route: resolve("./src/route"),
 					$api: resolve("./src/api"),
-					$store: resolve("./src/store"),
+					$route: resolve("./src/routes"),
+					$store: resolve("./src/stores"),
 					$css: resolve("./src/app.css")
 				}
 			},
