@@ -1,11 +1,14 @@
 <script>
+	import logo from './borat-great-success.png';
+
 	// Endpoint body output automatically feeds the props
-	export let items = [];
+	export let title;
 </script>
 
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
+
 <div class="flex h-screen">
-	<div class="m-auto">
-		<h1 class="text-bold text-center text-6xl">Great success !</h1>
-		{items}
-	</div>
+	<img alt="borat great success" src={logo} class="m-auto" />
 </div>

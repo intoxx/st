@@ -1,2 +1,3 @@
 # Sveltekit Tailwind skeleton
-Starter template using *sveltekit*, *tailwindcss* and minification tools (*cssnano* and *html-minifier-terser*).
+
+Starter template using _sveltekit_, _tailwindcss_ and minification tools (_cssnano_ and _html-minifier-terser_).

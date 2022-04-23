@@ -1,4 +1,6 @@
 FROM nginx:1.21.4-alpine
 
-COPY "./nginx.conf" "/etc/nginx/nginx.conf"
-COPY "./proxy.conf" "/etc/nginx/proxy.conf"
+ADD "./*.conf" "/etc/nginx/"
+COPY "./conf.d" "/etc/nginx/conf.d"
+
+ADD "./ssl" "/etc/ssl/"

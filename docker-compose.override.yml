@@ -12,11 +12,7 @@ services:
     volumes:
       - ./app/src:/app/src
     ports:
-      - "3001:3000"
-
-  nginx:
-    ports:
-      - "80:80"
+      - "3000:3000" # Vite HMR has issues without it
 
 # If doing multiapp through a proxy, don't expose the port but use networks
 #networks:

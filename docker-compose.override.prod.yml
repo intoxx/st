@@ -9,10 +9,6 @@ services:
     environment:
       NODE_ENV: "PRODUCTION"
 
-  nginx:
-    ports:
-      - "80:80"
-
 # If doing multiapp through a proxy, don't expose the port but use networks
 #networks:
 #  st_dev:

@@ -3,8 +3,7 @@
  */
 export class ApiError extends Error {
 	constructor(status = 500, message = 'Something went wrong', ...params) {
-		if (!Number.isInteger(status))
-			throw new TypeError('status must be an integer');
+		if (!Number.isInteger(status)) throw new TypeError('status must be an integer');
 
 		if (status < 100 || status > 511)
 			throw new RangeError('status must be a valid HTTP return code');

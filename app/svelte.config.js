@@ -1,20 +1,19 @@
-import adapter from "@sveltejs/adapter-node";
-import preprocess from "svelte-preprocess";
-import { resolve } from "path";
+import adapter from '@sveltejs/adapter-node';
+import preprocess from 'svelte-preprocess';
+import { resolve } from 'path';
 
-/** @type {import("@sveltejs/kit").Config} */
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
 		adapter: adapter(),
 
 		files: {
-			assets: "static"
+			assets: 'static'
 		},
 
 		routes: (filepath) => {
 			// Ignore route lib folder
-			if (filepath.endsWith("/lib") || filepath.includes("/lib/"))
-				return false;
+			if (filepath.endsWith('/lib') || filepath.includes('/lib/')) return false;
 
 			// Default regex
 			return !/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known))/.test(filepath);
@@ -23,22 +22,26 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$api: resolve("./src/api"),
-					$route: resolve("./src/routes"),
-					$store: resolve("./src/stores"),
-					$css: resolve("./src/app.css")
+					$api: resolve('./src/api'),
+					$route: resolve('./src/routes'),
+					$store: resolve('./src/stores'),
+					$css: resolve('./src/app.css')
 				}
 			},
 
 			server: {
+				//host: true,
+				port: 3000,
+				https: true,
+
 				hmr: {
-					host: "localhost",
+					//host: "localhost",
 					// Internal port (inside the container)
-					port: 3000,
+					//port: 3001,
 					// External port (outside the container)
-					clientPort: 3001,
+					//clientPort: 3000,
 					// ws : http, wss : https
-					protocol: "ws"
+					//protocol: "wss"
 				}
 			}
 		}

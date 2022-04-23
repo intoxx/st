@@ -1,9 +1,6 @@
 {
 	"useTabs": true,
-	"singleQuote": false,
+	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 100,
-	"bracketSameLine": false,
-	"svelteStrictMode": false,
-	"svelteAllowShorthand": true
+	"printWidth": 100
 }
