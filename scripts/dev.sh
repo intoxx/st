@@ -2,7 +2,7 @@
 set -e
 
 podman run \
-	--rm
+	--rm \
 	--pod new:st \
 	--name app \
 	-p 3000:3000 \
